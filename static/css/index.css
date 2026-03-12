@@ -27,6 +27,29 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
+.teaser-grid {
+  align-items: stretch;
+}
+
+.teaser-figure {
+  margin: 0;
+}
+
+.teaser-image {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.teaser-caption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
 
 .publication-title {
 }
