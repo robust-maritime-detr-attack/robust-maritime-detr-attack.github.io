@@ -2,6 +2,17 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+h2 { text-align: center; }
+
+.section-description {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+section.hero.is-light.is-small + section.hero.teaser {
+  margin-top: 1rem;
+}
 
 .footer .icon-link {
     font-size: 25px;
@@ -137,17 +148,49 @@ body {
   overflow: hidden;
 }
 
+.results-carousel .slider-item {
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
 .results-carousel .item {
-  margin: 5px;
+  margin: 0;
   overflow: hidden;
   border: 1px solid #bbb;
   border-radius: 10px;
   padding: 0;
   font-size: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
 }
 
 .results-carousel video {
   margin: 0;
+}
+
+.responsive-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.results-carousel .carousel-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.results-carousel .carousel-image[src*="patched_decoder"],
+.results-carousel .carousel-image[src*="patched_encoder"],
+.results-carousel .carousel-image[src*="patched_incoming"] {
+  transform: scale(1.2);
+  transform-origin: center;
 }
 
 

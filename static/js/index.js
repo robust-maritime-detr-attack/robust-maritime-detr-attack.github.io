@@ -19,6 +19,60 @@ function setInterpolationImage(i) {
   $('#interpolation-image-wrapper').empty().append(image);
 }
 
+function initClippedVideos() {
+  var clippedVideos = document.querySelectorAll('video[data-clip-start][data-clip-end]');
+  clippedVideos.forEach(function(video) {
+    var clipStart = parseFloat(video.dataset.clipStart);
+    var clipEnd = parseFloat(video.dataset.clipEnd);
+    var epsilon = 0.05;
+    if (Number.isNaN(clipStart) || Number.isNaN(clipEnd) || clipEnd <= clipStart) {
+      return;
+    }
+
+    function seekToClipStart() {
+      // Guard against out-of-range seeks when metadata is partially available.
+      var maxStart = Number.isFinite(video.duration) && video.duration > 0
+        ? Math.max(0, video.duration - epsilon)
+        : clipStart;
+      var safeStart = Math.min(clipStart, maxStart);
+      try {
+        video.currentTime = safeStart;
+      } catch (e) {
+        // Ignore temporary seek errors and allow the next event to retry.
+      }
+    }
+
+    video.addEventListener('loadedmetadata', function() {
+      seekToClipStart();
+    });
+
+    video.addEventListener('canplay', function() {
+      if (video.currentTime < clipStart - epsilon || video.currentTime > clipEnd + epsilon) {
+        seekToClipStart();
+      }
+    });
+
+    video.addEventListener('play', function() {
+      if (video.currentTime < clipStart || video.currentTime > clipEnd) {
+        seekToClipStart();
+      }
+    });
+
+    video.addEventListener('seeking', function() {
+      if (video.currentTime < clipStart - epsilon || video.currentTime > clipEnd) {
+        seekToClipStart();
+      }
+    });
+
+    video.addEventListener('timeupdate', function() {
+      if (video.currentTime >= clipEnd - epsilon) {
+        video.pause();
+        seekToClipStart();
+      }
+    });
+  });
+}
+
 
 $(document).ready(function() {
     // Check for click events on the navbar burger icon
@@ -39,7 +93,18 @@ $(document).ready(function() {
     }
 
 		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    var resultsOptions = Object.assign({}, options, {
+      slidesToShow: 4,
+      breakpoints: [
+        { changePoint: 480, slidesToShow: 1, slidesToScroll: 1 },
+        { changePoint: 768, slidesToShow: 2, slidesToScroll: 1 },
+        { changePoint: 1024, slidesToShow: 3, slidesToScroll: 1 },
+      ],
+    });
+
+    var resultsCarousels = bulmaCarousel.attach('.results-carousel', resultsOptions);
+    var otherCarousels = bulmaCarousel.attach('.carousel:not(.results-carousel)', options);
+    var carousels = resultsCarousels.concat(otherCarousels);
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
@@ -66,6 +131,7 @@ $(document).ready(function() {
       })
     }, false);*/
     preloadInterpolationImages();
+    initClippedVideos();
 
     $('#interpolation-slider').on('input', function(event) {
       setInterpolationImage(this.value);

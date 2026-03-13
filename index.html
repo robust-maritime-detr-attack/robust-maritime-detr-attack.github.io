@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="Robust Physical Adversarial Patch Attacks Against Detection
+Transformers in Maritime Domains">
+  <meta name="keywords" content="Adversarial Attacks, Detection Transformers, Maritime Domains, Computer Vision, Autonomous Vehicles">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>Robust Physical Adversarial Patch Attacks Against Detection
+Transformers in Maritime Domains</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -28,14 +30,14 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
@@ -66,7 +68,7 @@
           <a class="navbar-item" href="https://hypernerf.github.io">
             HyperNeRF
           </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
+          <a class="navbar-item" href="https://DeTRPatchAttack.github.io">
             Nerfies
           </a>
           <a class="navbar-item" href="https://latentfusion.github.io">
@@ -98,10 +100,10 @@ Transformers in Maritime Domains</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Anonymous</span>
           </div>
-
+          <!--TBD
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+               PDF Link.
               <span class="link-block">
                 <a href="https://arxiv.org/pdf/2011.12948"
                    class="external-link button is-normal is-rounded is-dark">
@@ -120,7 +122,7 @@ Transformers in Maritime Domains</h1>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
+              Video Link. 
               <span class="link-block">
                 <a href="https://youtu.be/Oixn6GUiXCg"
                    class="external-link button is-normal is-rounded is-dark">
@@ -130,7 +132,7 @@ Transformers in Maritime Domains</h1>
                   <span>Video</span>
                 </a>
               </span>
-              <!-- Code Link. -->
+         Code Link.
               <span class="link-block">
                 <a href="https://github.com/google/nerfies"
                    class="external-link button is-normal is-rounded is-dark">
@@ -140,7 +142,7 @@ Transformers in Maritime Domains</h1>
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
+            Dataset Link
               <span class="link-block">
                 <a href="https://github.com/google/nerfies/releases/tag/0.1"
                    class="external-link button is-normal is-rounded is-dark">
@@ -151,15 +153,61 @@ Transformers in Maritime Domains</h1>
                   </a>
             </div>
 
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Autonomous vehicles rely on modern computer
+            vision (CV) techniques to execute tasks such as object detection,
+            depth estimation, and path planning. Particularly, in maritime
+            domains, CV models are required to perform surveillance,
+            search and rescue, and disaster response missions. However,
+            these models have shown to be susceptible to adversarial
+            attacks, which can directly threaten operational safety, security,
+            and decision-making by suppressing or falsifying detection in
+            real-world scenarios. Motivated by these risks, we aim to study
+            the effects of adversarial patch attacks against detection trans-
+            formers (DeTR), using YOLOv8 as a baseline detector for com-
+            parative simulation studies. This work proposes a reproducible
+            framework for patch generation that maps a low-dimensional
+            latent representation into a universal physical adversarial patch.
+            Furthermore, we present DeTR-specific attack objectives to 1.
+            suppress and encourage misclassification of a chosen target
+            class, and 2, directly manipulate decoder cross-attention by
+            maximizing attention mass on the patch region. This approach
+            is then validated through simulated experiments trained on
+            the MIT Sea Grant Marine Perception Dataset and custom
+            datasets along with controlled physical tests on Autonomous
+            Surface Vehicles (ASVs). We conclude that learned patches can
+            significantly impact detection performance without the need
+            to alter data at the pixel-level and that transformer-based
+            detectors are especially vulnerable to patches that can target
+            their attention mechanisms in both simulated and physical envi-
+            ronments.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
+    <h2 class="title is-3">Patch Generation Architecture</h2>
+    <p class="section-description">Neural architecture used to generate universal adversarial patches from a low-dimensional latent vector. The decoder-based generator progressively upsamples the latent representation through convolutional blocks to produce a printable adversarial patch.</p>
     <div class="hero-body">
       <div class="columns is-variable is-5 teaser-grid">
         <div class="column">
@@ -183,7 +231,43 @@ Transformers in Maritime Domains</h1>
   </div>
 </section>
 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Sample Adversarial Patches</h2>
+      <p class="section-description">Examples of adversarial patches produced by the proposed generator. These patches are optimized to suppress or manipulate object detections while remaining robust to different placements and viewing conditions.</p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./static/images/yolo_patch.png"
+               class="carousel-image"
+               alt="Steve reference image."/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/maritime_patch.png"
+               class="carousel-image"
+               alt="Chair-tp reference image."/>
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/images/lab_patch.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/images/maritime_attention_patch.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+          <div class="item item-shiba">
+          <img src="./static/images/lab_attention_patch.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Depricated Carousel 
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
@@ -240,79 +324,138 @@ Transformers in Maritime Domains</h1>
     </div>
   </div>
 </section>
+-->
 
 
-<section class="section">
+
+<section class="hero teaser">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Autonomous vehicles rely on modern computer
-            vision (CV) techniques to execute tasks such as object detection,
-            depth estimation, and path planning. Particularly, in maritime
-            domains, CV models are required to perform surveillance,
-            search and rescue, and disaster response missions. However,
-            these models have shown to be susceptible to adversarial
-            attacks, which can directly threaten operational safety, security,
-            and decision-making by suppressing or falsifying detection in
-            real-world scenarios. Motivated by these risks, we aim to study
-            the effects of adversarial patch attacks against detection trans-
-            formers (DeTR), using YOLOv8 as a baseline detector for com-
-            parative simulation studies. This work proposes a reproducible
-            framework for patch generation that maps a low-dimensional
-            latent representation into a universal physical adversarial patch.
-            Furthermore, we present DeTR-specific attack objectives to 1.
-            suppress and encourage misclassification of a chosen target
-            class, and 2, directly manipulate decoder cross-attention by
-            maximizing attention mass on the patch region. This approach
-            is then validated through simulated experiments trained on
-            the MIT Sea Grant Marine Perception Dataset and custom
-            datasets along with controlled physical tests on Autonomous
-            Surface Vehicles (ASVs). We conclude that learned patches can
-            significantly impact detection performance without the need
-            to alter data at the pixel-level and that transformer-based
-            detectors are especially vulnerable to patches that can target
-            their attention mechanisms in both simulated and physical envi-
-            ronments.
-          </p>
+    <h2 class="title is-3">YOLO Simulation Test</h2>
+    <p class="section-description">Impact of the generated adversarial patches on a YOLOv8 detector in simulated maritime scenes. The results show that the patch can suppress boat detections or cause misclassification without directly covering the target object.</p>
+    <div class="hero-body">
+      <div class="columns is-variable is-5 teaser-grid">
+        <div class="column">
+          <figure class="teaser-figure">
+            <img src="./static/images/yolo_baseline.png"
+                 class="teaser-image"
+                 alt="YOLO Baseline">
+            <figcaption class="teaser-caption">a. Baseline Image</figcaption>
+          </figure>
+        </div>
+        <div class="column">
+          <figure class="teaser-figure">
+            <img src="./static/images/yolo_patched.png"
+                 class="teaser-image"
+                 alt="YOLO Patched">
+            <figcaption class="teaser-caption">b. YOLO Patched Image</figcaption>
+          </figure>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://youtu.be/Oixn6GUiXCg"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">DeTR Simulation Test - Maritime Dataset</h2>
+      <p class="section-description">Simulation experiments using the Maritime Perception Dataset evaluate how the generated patches affect DeTR’s detection and attention maps. The results show significant reductions in detected boat counts and confidence scores when patches are applied.</p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./static/images/maritime_img_baseline.png"
+               class="carousel-image"
+               alt="Steve reference image."/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/maritime_img_patched.png"
+               class="carousel-image"
+               alt="Chair-tp reference image."/>
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/images/maritime_patched_decoder_boat.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/images/maritime_patched_decoder_patch.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+          <div class="item item-shiba">
+          <img src="./static/images/maritime_patched_incoming_boat.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+                  <div class="item item-shiba">
+          <img src="./static/images/maritime_patched_incoming_patch.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">DeTR Simulation Test - Custom Dataset</h2>
+      <p class="section-description">Additional simulations are performed using a custom dataset collected from the ASV platform. These experiments highlight how patches trained with different loss functions influence both detection outputs and attention behavior within the model.</p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./static/images/lab_img_baseline.png"
+               class="carousel-image"
+               alt="Steve reference image."/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/lab_img_patched.png"
+               class="carousel-image"
+               alt="Chair-tp reference image."/>
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/images/lab_patched_decoder_boat.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/images/lab_patched_decoder_patch.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+          <div class="item item-shiba">
+          <img src="./static/images/lab_patched_encoder_boat.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+                  <div class="item item-shiba">
+          <img src="./static/images/lab_patched_encoder_patch.png"
+               class="carousel-image"
+               alt="Shiba reference image."/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
 
-    <div class="columns is-centered">
+    <div class="content">
+      <h2 class="title is-3">Physical Experiments</h2>
+      <p class="section-description">
+        We validate the simulated attack results through real-world tests using an Autonomous Surface Vehicle in a controlled lab environment. Printed adversarial patches are attached to the vessel to observe their impact on real-time detection.
+      </p>
+    </div>
 
+    <div class="columns is-centered">
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
+          <h2 class="title is-3">Position 1</h2>
           <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
+          <video id="dollyzoom" class="responsive-video" autoplay controls muted loop playsinline>
+            <source src="./static/videos/detr_capture_final_clip_1.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -321,15 +464,11 @@ Transformers in Maritime Domains</h1>
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Matting</h2>
+        <h2 class="title is-3">Position 2</h2>
         <div class="columns is-centered">
           <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
+            <video id="matting-video" class="responsive-video" controls playsinline>
+              <source src="./static/videos/detr_capture_final_clip_2.mp4"
                       type="video/mp4">
             </video>
           </div>
@@ -339,72 +478,30 @@ Transformers in Maritime Domains</h1>
     </div>
     <!--/ Matting. -->
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+  </div>
+</section>
 
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video class="responsive-video" controls playsinline>
+            <source src="./static/videos/detr_capture_final.mp4"
                     type="video/mp4">
           </video>
         </div>
-        <!--/ Re-rendering. -->
-
       </div>
     </div>
-    <!--/ Animation. -->
+    <!--/ Paper video. -->
+  </div>
+</section>
 
-
-    <!-- Concurrent Work. -->
+    <!-- Concurrent Work.
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
@@ -429,20 +526,20 @@ Transformers in Maritime Domains</h1>
         </div>
       </div>
     </div>
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
+ -->
 
-
+<!-- BibiTex
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code></code></pre>
   </div>
 </section>
+-->
 
-
+<!-- Footer
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
@@ -474,6 +571,7 @@ Transformers in Maritime Domains</h1>
     </div>
   </div>
 </footer>
+-->
 
 </body>
 </html>
